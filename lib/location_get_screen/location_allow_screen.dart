@@ -32,11 +32,14 @@ class LocationAllowScreeen extends StatelessWidget {
                     onPressed: () async {
                       var checkPermission = await GeolocatorPlatform.instance
                           .openAppSettings()
-                          .then((checkPermission) {});
-                      print("permission from service is $checkPermission");
-                      if (checkPermission) {
-                        NavigateToMainScreen(context);
-                      }
+                          .then((checkPermission) {
+                        print("permission from service is $checkPermission");
+                        if (checkPermission) {
+                          Future.delayed(Duration(seconds: 3), () {
+                            NavigateToMainScreen(context);
+                          });
+                        }
+                      });
                     },
                     child: const Text("Allow Permission"))
               ]),
