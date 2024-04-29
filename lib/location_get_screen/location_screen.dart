@@ -42,16 +42,19 @@ class _LocationGetScreenState extends State<LocationGetScreen> {
     return Scaffold(
       appBar: AppBar(actions: []),
       body: Center(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Text("Location lat: ${locationData?.latitude ?? 0}"),
-          Text("Location log: ${locationData?.longitude ?? 0}"),
-          ElevatedButton(
-              onPressed: () async {
-                locationData = await getCurrentLocation();
-                setState(() {});
-              },
-              child: const Text("Find location "))
-        ]),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Location lat: ${locationData?.latitude ?? 0}"),
+              Text("Location log: ${locationData?.longitude ?? 0}"),
+              ElevatedButton(
+                  onPressed: () async {
+                    locationData = await getCurrentLocation();
+                    setState(() {});
+                  },
+                  child: const Text("Find location "))
+            ]),
       ),
     );
   }
